@@ -4,8 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//Imports the mongoose module
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); //Imports the mongoose module
 
 // Importing modules from routes directory
 var indexRouter = require('./routes/index');
@@ -27,9 +26,12 @@ app.use(cookieParser());
 /* use the express.static middleware to get Express to serve all the static files in the /public directory in the project root. */
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Set up default mongoose connection
+// Set up mongoose connection
+var local_db_url = 'mongodb://localhost/blog';
+var mongoDB = process.env.MONGODB_URI || local_db_url;
+
 mongoose
-	.connect('mongodb://localhost/blog', {
+	.connect(mongoDB, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
