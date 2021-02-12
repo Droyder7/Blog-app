@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+i.icon {
+  font-size: 1.2em;
+}
+.container.main {
+  margin-top: 7em;
+}
+
+#delete {
+  display: inline;
+}
+
+a {
+  color: #00b7ff;
+}
